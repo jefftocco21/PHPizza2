@@ -17,6 +17,17 @@ Route::get('/', function () {
     return view('posts');
 });
 
-Route::get('post', function() {
-    return view('post');
+Route::get('posts/{post}', function($slug) { //wildcard is put in brackets, matched and passed to function
+
+    $path = __DIR__ . "/../resources/posts/{$slug}.html";
+
+    if(! file_exists($path)){
+     return redirect('/'); //go to homepage if file does not exist
+    }
+
+    $post = file_get_contents($path);
+
+    return view('post', [
+        'post' => $post
+    ]);
 });
