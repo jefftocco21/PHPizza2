@@ -30,4 +30,4 @@ Route::get('posts/{post}', function($slug) { //wildcard is put in brackets, matc
     return view('post', [
         'post' => $post
     ]);
-});
+})->where('post', '[A-z_\-]+'); //404 would be thrown if URI does not match regular expression
