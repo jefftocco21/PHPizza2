@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Post;
+use Illuminate\Support\Facades\File;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,19 +16,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('posts');
+    $posts = Post::all();
+
+    //ddd($posts);
+
+    return view('posts', [
+        'posts' => $posts
+    ]);
 });
 
-Route::get('posts/{post}', function($slug) { //wildcard is put in brackets, matched and passed to function
-
-    if(! file_exists($path = __DIR__ . "/../resources/posts/{$slug}.html")){
-     return redirect('/'); //go to homepage if file does not exist
-    }
-
-    //var_dump('file_get_contents'); //would dump the string when the string is no longer stored in cash
-    $post = cache()->remember("posts.{$slug}", 5, function() use ($path){ //remember stores key in cache, interval in seconds, then pass function
-        return $post = file_get_contents($path);
-    });
-
-    return view('post', ['post' => $post]);
+//wildcard is put in brackets, matched and passed to function
+Route::get('posts/{post}', function($slug) { 
+    //Find a post by its slug and pass it to a view called "post"
+    
+    return view('post', [
+        'post' => Post::find($slug)
+    ]);
 })->where('post', '[A-z_\-]+'); //404 would be thrown if URI does not match regular expression
