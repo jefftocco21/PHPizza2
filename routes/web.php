@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use Illuminate\Support\Facades\File;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,12 +17,9 @@ use Illuminate\Support\Facades\File;
 */
 
 Route::get('/', function () {
-    $posts = Post::all();
-
-    //ddd($posts);
 
     return view('posts', [
-        'posts' => $posts
+        'posts' => post::all()
     ]);
 });
 
