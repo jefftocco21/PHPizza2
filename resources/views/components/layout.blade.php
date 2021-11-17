@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="/app.css">
 
 <body>
-  {{$slot}} <!--{{component}}  -- valid method as well-->
+  {{ $slot }} 
 </body>
 
 </html>
