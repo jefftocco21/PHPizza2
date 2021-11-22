@@ -23,11 +23,8 @@ Route::get('/', function () {
     ]);
 });
 
-//wildcard is put in brackets, matched and passed to function
-Route::get('posts/{post}', function($id) { 
-    //Find a post by its slug and pass it to a view called "post"
-
+Route::get('posts/{post:slug}', function(Post $post) { 
     return view('post', [
-        'post' => Post::findorFail($id)
+        'post' => $post
     ]);
-}); //->where('post', '[A-z_\-]+'); //404 would be thrown if URI does not match regular expression
+});
