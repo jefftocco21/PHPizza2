@@ -12,6 +12,8 @@ class Post extends Model
     //fillable property represents which attributes can be mass assigned
     protected $fillable = ['title', 'excerpt', 'body', 'category_id', 'slug'];
 
+    protected $with = ['category', 'author'];
+
     public function category()
     {
         return $this->belongsTo(Category::class);
