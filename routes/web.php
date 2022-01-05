@@ -15,4 +15,8 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
 Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
-Route::post('logout', [SessionController::class, 'destroy']);
+
+Route::get('login', [SessionController::class, 'create'])->middleware('guest'); //only guests should see a login page
+Route::post('logout', [SessionController::class, 'destroy'])->middleware('auth'); //user must be authenticated to reach logout
+
+Route::post('sessions', [SessionController::class, 'store'])->middleware('guest'); //only guests should have to try to login by reaching SessionController
