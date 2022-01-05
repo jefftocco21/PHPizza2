@@ -22,13 +22,13 @@ class SessionController extends Controller
         ]);
 
         //attempt to authenticate and log in user
-        if(auth()->attempt($attributes)){
-            session()->regenerate();
-            return redirect('/')->with('success', 'Welcome Back'); //redirect with success flash message
-        }
-
-        return back()
+        if(!auth()->attempt($attributes)){
+            back()
             ->withInput() //keep the input
             ->withErrors(['email' => 'Provided credentails could not be verified.']); //$errors
+        }
+
+        session()->regenerate();
+        return redirect('/')->with('success', 'Welcome Back'); //redirect with success flash message
     }
 }
