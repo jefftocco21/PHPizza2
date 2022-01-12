@@ -9,6 +9,57 @@ use Illuminate\Support\Facades\File;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\PostCommentController;
+use PhpParser\Node\Stmt\TryCatch;
+
+//health check
+Route::get('ping', function (){
+
+    $mailchimp = new \MailchimpMarketing\ApiClient();
+
+    $mailchimp->setConfig([
+        'apiKey' => config('services.mailchimp.key'),
+        'server' => 'us20'
+    ]);
+
+    $response = $mailchimp->ping->get();
+    print_r($response);
+});
+
+
+Route::get('lists', function (){
+
+    $mailchimp = new \MailchimpMarketing\ApiClient();
+
+    $mailchimp->setConfig([
+        'apiKey' => config('services.mailchimp.key'),
+        'server' => 'us20'
+    ]);
+    $response = $mailchimp->lists->getListMembersInfo('da73eda747');
+    ddd($response);
+});
+
+Route::post('newsletter', function(){
+    request()->validate(['email' => 'required|email']);
+
+    $mailchimp = new \MailchimpMarketing\ApiClient();
+
+    $mailchimp->setConfig([
+        'apiKey' => config('services.mailchimp.key'),
+        'server' => 'us20'
+    ]);
+
+    try {
+        $response = $mailchimp->lists->addListMember('da73eda747', [
+            'email_address' => request('email'),
+            'status' => 'subscribed',
+            'status_if_new' => 'subscribed'
+        ]);
+    } catch (\Exception $e){
+        return redirect('/')
+                ->with('success', 'You are now signed up for our newsletter.');
+    }
+});
+
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
