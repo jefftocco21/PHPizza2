@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\validation\ValidationException;
 
 class SessionController extends Controller
 {
@@ -23,9 +24,9 @@ class SessionController extends Controller
 
         //attempt to authenticate and log in user
         if(!auth()->attempt($attributes)){
-            back()
-            ->withInput() //keep the input
-            ->withErrors(['email' => 'Provided credentails could not be verified.']); //$errors
+            throw ValidationException::withMessages([
+                'email' => 'Provided credentials could not be verified.'
+            ]);
         }
 
         session()->regenerate();
