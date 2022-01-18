@@ -10,7 +10,7 @@ class Post extends Model
     use HasFactory;
 
     //fillable property represents which attributes can be mass assigned
-    protected $fillable = ['title', 'excerpt', 'body', 'category_id', 'slug'];
+    protected $fillable = ['title', 'excerpt', 'user_id', 'body', 'category_id', 'slug'];
 
     protected $with = ['category', 'author'];
 
