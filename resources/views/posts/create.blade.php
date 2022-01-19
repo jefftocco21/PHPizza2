@@ -15,25 +15,11 @@
 
                 <x-form.textarea name="excerpt" />
 
-                <div class="mb-6">
-                    <label for="body" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Body
-                    </label>
-
-                    <textarea class="border border-gray-400 p-2 w-full" type="text" name="body" id="body" required>{{old('body')}}</textarea>
-
-                    @error('body')
-                    <p class="text-red-500 text-xs mt-2">
-                        {{$message}}
-                    </p>
-                    @enderror
-
-                </div>
+                <x-form.textarea name="body" />
 
                 <div class="mb-6">
-                    <label for="category_id" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Category
-                    </label>
+
+                <x-form.label name="category" />
 
                     <select name="category_id" id="category_id">
                         @php
@@ -48,11 +34,7 @@
                         @endforeach
                     </select>
 
-                    @error('category')
-                    <p class="text-red-500 text-xs mt-2">
-                        {{$message}}
-                    </p>
-                    @enderror
+                <x-form.error name="category" />
 
                 </div>
 
