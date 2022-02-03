@@ -16,7 +16,7 @@
         <nav class="md:flex md:justify-between md:items-center">
             <div>
                 <a href="/">
-                    <img src="/images//logo.svg" alt="Laracasts Logo" width="165" height="16">
+                    <img src="/images//bullsnake.jpg" alt="Laracasts Logo" width="100" height="100" class="rounded-xl">
                 </a>
             </div>
 
