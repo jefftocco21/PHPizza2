@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\ApplicantController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\Category;
@@ -24,9 +25,9 @@ Route::get('landing', function(){
     return view('landing');
 });
 
-Route::get('apply', function(){
-    return view('apply');
-});
+// Route::get('apply', function(){
+//     return view('apply');
+// });
 
 Route::get('about', function(){
     return view('about');
@@ -51,3 +52,7 @@ Route::middleware('can:admin')->group(function(){
     Route::patch('admin/posts/{post}', [AdminPostController::class, 'update']);
     Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy']);
 });
+
+
+Route::get('apply', [ApplicantController::class, 'create'])->middleware('guest');
+Route::post('apply', [ApplicantController::class, 'store'])->middleware('guest');
