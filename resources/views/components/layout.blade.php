@@ -19,12 +19,27 @@
                     <img src="/images//bullsnake.jpg" alt="Laracasts Logo" width="100" height="100" class="rounded-xl">
                 </a>
             </div>
-
+            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
+                <ul class="list-reset lg:flex justify-end flex-1 items-center">
+                  <li class="mr-3">
+                    <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="landing">Home</a>
+                  </li>
+                  <li class="mr-3">
+                    <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="about">About</a>
+                  </li>
+                  <li class="mr-3">
+                    <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="/">Blog</a>
+                  </li>
+                  <li class="mr-3">
+                    <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="apply">Apply</a>
+                  </li>
+                </ul>
+              </div>
             <div class="mt-8 md:mt-0 flex items-center">
                 @auth
                 <x-dropdown>
                     <x-slot name="trigger">
-                        <button href="/register" class="text-xs font-bold uppercase">Welcome, {{auth()->user()->name}}!</button>
+                        <button href="/register" class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4">Welcome, {{auth()->user()->name}}!</button>
                     </x-slot>
 
                     @admin
@@ -41,8 +56,8 @@
 
 
                 @else
-                    <a href="/register" class="text-xs font-bold uppercase">Register</a>
-                    <a href="/login" class=" ml-6 text-xs font-bold uppercase">Log In</a>
+                    <a href="/register" class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4">Register</a>
+                    <a href="/login" class=" inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4">Log In</a>
                 @endguest
 
                 <a href="#newsletter" class="bg-blue-500 ml-3 rounded-full text-xs font-semibold text-white uppercase py-3 px-5">

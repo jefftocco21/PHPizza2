@@ -47,7 +47,7 @@ class AppServiceProvider extends ServiceProvider
 
         //Custom blade directive called admin that defers to Gate admin
         Blade::if('admin', function(){
-            return request()->user()?->can('admin');
+            return request()->user()->can('admin');
         });
     }
 }
