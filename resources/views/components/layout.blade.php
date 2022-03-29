@@ -16,22 +16,13 @@
         <nav class="md:flex md:justify-between md:items-center">
             <div>
                 <a href="/">
-                    <img src="/images//bullsnake.jpg" alt="Laracasts Logo" width="100" height="100" class="rounded-xl">
+                    <img src="" alt="" width="" height="" class="rounded-xl">
                 </a>
             </div>
             <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
                 <ul class="list-reset lg:flex justify-end flex-1 items-center">
                   <li class="mr-3">
-                    <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="landing">Home</a>
-                  </li>
-                  <li class="mr-3">
-                    <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="about">About</a>
-                  </li>
-                  <li class="mr-3">
-                    <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="/">Blog</a>
-                  </li>
-                  <li class="mr-3">
-                    <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="apply">Apply</a>
+                    <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="/">Home</a>
                   </li>
                 </ul>
               </div>
@@ -69,9 +60,9 @@
        {{$slot}}
 
         <footer id="newsletter" class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
-            <img src="/images/bullsnake.jpg" alt="" class="rounded-full mx-auto mb-6" style="width: 145px;">
+            <img src="" alt="" class="rounded-full mx-auto mb-6" style="width: 145px;">
             <h5 class="text-3xl">Stay in touch with the latest updates.</h5>
-            <p class="text-sm mt-3">*NOTE FOR FUTURE JEFF USE ARCHIVE NOT UNSUBSCRIBE 1/24/2022*</p>
+            <p class="text-sm mt-3"></p>
 
             <div class="mt-10">
                 <div class="relative inline-block mx-auto lg:bg-gray-200 rounded-full">

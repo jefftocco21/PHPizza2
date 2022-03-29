@@ -28,6 +28,6 @@ class RegisterController extends Controller
         //log the user in
         auth()->login($user);
 
-        return redirect('/')->with('success', "Your account has been created");;
+        return redirect('/')->with('success', "Sorry, registration is currently closed");
     }
 }

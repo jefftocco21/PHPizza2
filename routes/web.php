@@ -21,17 +21,9 @@ Route::post('newsletter', NewsletterController::class);
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
-Route::get('landing', function(){
-    return view('landing');
-});
-
 // Route::get('apply', function(){
 //     return view('apply');
 // });
-
-Route::get('about', function(){
-    return view('about');
-});
 
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 Route::post('posts/{post:slug}/comments', [PostCommentController::class, 'store']);
