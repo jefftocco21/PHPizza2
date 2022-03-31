@@ -21,10 +21,6 @@ Route::post('newsletter', NewsletterController::class);
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 
-// Route::get('apply', function(){
-//     return view('apply');
-// });
-
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 Route::post('posts/{post:slug}/comments', [PostCommentController::class, 'store']);
 
@@ -46,5 +42,3 @@ Route::middleware('can:admin')->group(function(){
 });
 
 
-Route::get('apply', [ApplicantController::class, 'create'])->middleware('guest');
-Route::post('apply', [ApplicantController::class, 'store'])->middleware('guest');
